@@ -11,14 +11,9 @@ from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_
 log = logging.getLogger(__name__)
 
 
-def is_gmail(name):
-    if "gmail" in name:
-        return True
-    return False
-
-
 def download_google_profile_image(auth_entry, strategy, details, user=None, *args, **kwargs):
-    if user and not user.profile.profile_image_uploaded_at and is_gmail(user.email):
+    is_google_oauth2 = kwargs['backend'] and kwargs['backend'].name == "google-oauth2" and True or False
+    if user and not user.profile.profile_image_uploaded_at and is_google_oauth2:
         try:
             username = user.username
             req = urllib2.Request('https://people.googleapis.com/v1/people/me?personFields=photos')
