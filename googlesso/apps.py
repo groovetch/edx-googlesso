@@ -1,5 +1,5 @@
 """
-App configuration for google_picture_profile.
+App configuration for googlesso.
 """
 
 from __future__ import unicode_literals
@@ -8,23 +8,23 @@ from django.apps import AppConfig
 from django.conf import settings
 
 
-class GooglePictureProfileConfig(AppConfig):
+class GoogleSSOConfig(AppConfig):
     """
-    google_picture_profile configuration.
+    googlesso configuration.
     """
-    name = 'google_picture_profile'
-    verbose_name = 'google_picture_profile'
+    name = 'googlesso'
+    verbose_name = 'googlesso'
 
     plugin_app = {
         'url_config': {
             'lms.djangoapp': {
-                'namespace': 'google_picture_profile',
-                'regex': r'^google_picture_profile/',
+                'namespace': 'googlesso',
+                'regex': r'^googlesso/',
                 'relative_path': 'urls',
             },
             'cms.djangoapp': {
-                'namespace': 'google_picture_profile',
-                'regex': r'^google_picture_profile/',
+                'namespace': 'googlesso',
+                'regex': r'^googlesso/',
                 'relative_path': 'urls',
             }
         },
@@ -47,5 +47,5 @@ class GooglePictureProfileConfig(AppConfig):
         if settings.FEATURES.get('ENABLE_GOOGLE_PICTURE_PROFILE', False):
             if settings.FEATURES.get('ENABLE_THIRD_PARTY_AUTH', False):
                 settings.SOCIAL_AUTH_PIPELINE += [
-                    'google_picture_profile.pipeline.download_google_profile_image',
+                    'googlesso.picture_profile.pipeline.download_google_profile_image',
                 ]

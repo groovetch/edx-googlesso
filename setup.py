@@ -1,5 +1,5 @@
 """
-Setup file for google_picture_profile Django plugin.
+Setup file for Googlesso Django plugin.
 """
 
 from __future__ import print_function
@@ -59,15 +59,15 @@ def get_version(*file_paths):
 with open("README.rst", "r") as fh:
     README = fh.read()
 
-VERSION = get_version('google_picture_profile', '__init__.py')
+VERSION = get_version('googlesso', '__init__.py')
 
 
 setup(
-    name='google_picture_profile',
+    name='googlesso',
     version=VERSION,
     author='eduNEXT',
     author_email='contact@edunext.co',
-    description='google_picture_profile',
+    description='googlesso',
     license='AGPL',
     long_description=README,
     long_description_content_type='text/x-rst',
@@ -85,14 +85,14 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     packages=[
-        'google_picture_profile',
+        'googlesso',
     ],
     include_package_data=True,
     install_requires=load_requirements('requirements/base.in'),
     zip_safe=False,
     entry_points={
         "lms.djangoapp": [
-            'google_picture_profile = google_picture_profile.apps:GooglePictureProfileConfig',
+            'googlesso = googlesso.apps:GoogleSSOConfig',
         ],
     },
 )
