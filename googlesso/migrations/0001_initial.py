@@ -5,7 +5,6 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 import logging
 
-SECRET_KEY=settings.SOCIAL_AUTH_OAUTH_SECRETS.get("google-oauth2", "")
 GOOGLE_CLIENT_ID=settings.GOOGLE_CLIENT_ID
 LMS_HOST = settings.ENV_TOKENS.get("LMS_BASE")
 
@@ -27,7 +26,6 @@ def create_provider_record(apps, schema_editor):
         backend_name="google-oauth2",
         site_id=_get_or_create_site(),
         key=GOOGLE_CLIENT_ID,
-        secret=SECRET_KEY,
     )
     logging.info("Created Provider Configuration (OAuth) for Google")
 
