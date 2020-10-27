@@ -1,5 +1,5 @@
 """
-Init module for google_picture_profile.
+Init module for googlesso.
 """
 
 from __future__ import unicode_literals
